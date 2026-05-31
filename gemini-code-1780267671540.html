@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Plataforma educativa avanzada de química para secundaria.">
+    <title>Química Pro | Edición Premium</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <canvas id="bg-particles"></canvas>
+
+    <nav class="liquid-nav">
+        <div class="nav-content">
+            <div class="logo">
+                <i class="fa-solid fa-atom atom-spin"></i>
+                <h1>Química Pro</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#inicio" class="active"><i class="fa-solid fa-house"></i> Inicio</a></li>
+                <li><a href="#tabla-section"><i class="fa-solid fa-table-cells"></i> Tabla Periódica</a></li>
+                <li><a href="#herramientas"><i class="fa-solid fa-screwdriver-wrench"></i> Herramientas</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section id="inicio" class="hero-section">
+            <div class="glass-card hero-content fade-in-up">
+                <span class="badge">Nivel Secundario Avanzado</span>
+                <h2>Domina los Elementos</h2>
+                <p>Explora la tabla periódica con una interfaz fluida, datos precisos y un entorno interactivo diseñado para el aprendizaje profundo.</p>
+                <button class="btn-primary glass-button" onclick="document.getElementById('tabla-section').scrollIntoView({behavior: 'smooth'})">
+                    Iniciar Exploración <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <section id="tabla-section" class="main-workspace">
+            <div class="glass-toolbar">
+                <div class="search-wrapper">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="buscador" placeholder="Buscar elemento, símbolo o Z..." autocomplete="off">
+                </div>
+                <div class="filter-wrapper">
+                    <i class="fa-solid fa-filter"></i>
+                    <select id="filtro-categoria">
+                        <option value="todos">Todas las Familias</option>
+                        <option value="No metal">No Metales</option>
+                        <option value="Gas noble">Gases Nobles</option>
+                        <option value="Metal alcalino">Metales Alcalinos</option>
+                        <option value="Metal alcalinotérreo">Alcalinotérreos</option>
+                        <option value="Metaloide">Metaloides</option>
+                        <option value="Halógeno">Halógenos</option>
+                    </select>
+                </div>
+                <div class="stats-badge" id="conteo-elementos">
+                    Mostrando: 10 elementos
+                </div>
+            </div>
+
+            <div class="table-scroll-container glass-card">
+                <div class="periodic-grid" id="grid-elementos">
+                    </div>
+            </div>
+        </section>
+
+        <section id="herramientas" class="tools-section">
+            <div class="glass-card comparison-module">
+                <div class="module-header">
+                    <h3><i class="fa-solid fa-scale-unbalanced"></i> Análisis Comparativo</h3>
+                    <p>Selecciona dos elementos para contrastar sus propiedades atómicas.</p>
+                </div>
+                <div class="comparison-grid">
+                    <div class="select-container">
+                        <select id="comp-left" class="glass-select"><option value="">-- Elemento A --</option></select>
+                    </div>
+                    <div class="vs-badge">VS</div>
+                    <div class="select-container">
+                        <select id="comp-right" class="glass-select"><option value="">-- Elemento B --</option></select>
+                    </div>
+                </div>
+                <div id="panel-resultados" class="comparison-results">
+                    </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="modal-detalle" class="liquid-modal" aria-hidden="true">
+        <div class="modal-dialog glass-card">
+            <button class="btn-close" aria-label="Cerrar modal"><i class="fa-solid fa-xmark"></i></button>
+            <div id="modal-contenido"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
